@@ -1,5 +1,8 @@
 <% if user_signed_in? %>
   <h1>Bem vindo <%=current_user.email%></h1>
+  <%= link_to "Ver quadro de funcionários", employees_path %>
+  <%= link_to "Buscar funcionário", "#" %>
+  <%= link_to "Adicionar funcionário", new_employee_path %>
 <% else %>
   <h1>Você não está logado</h1>
 <% end %>
