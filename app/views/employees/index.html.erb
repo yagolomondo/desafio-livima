@@ -1,0 +1,5 @@
+<ul>
+  <% @employees.each do |employee| %>
+    <li><%= link_to employee.name, employee_path(employee) %>   <%= employee.email %>   <%= employee.role %>   <%= employee.salary%></li>
+  <% end %>
+</ul>

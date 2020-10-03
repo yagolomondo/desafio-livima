@@ -1,0 +1,9 @@
+<h2><%= @employee.name %></h2>
+<p><%= @employee.email %></p>
+<p><%= @employee.role %></p>
+<p><%= @employee.salary %></p>
+<%= link_to "Atualizar",edit_employee_path(@employee)%>
+<%= link_to "Excluir #{@employee.name}",
+            employee_path(@employee),
+            method: :delete,
+            data: { confirm: "Tem certeza que deseja excluir o funcionário?" } %>
