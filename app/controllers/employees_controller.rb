@@ -15,6 +15,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     @employee.save
+    NOTIFIER.ping "#{@employee.name} entrou para empresa."
     redirect_to employee_path(@employee)
   end
 
@@ -28,6 +29,7 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee.destroy
+    NOTIFIER.ping "#{@employee.name} saiu da empresa."
     redirect_to employees_path
   end
 
