@@ -1,4 +1,7 @@
 <div class="main-container">
+  <form action="/employees" method="get">
+    <input type="text" name="name" placeholder="Procurar funcionário" class="search_bar form-control">
+  </form>
   <div class="grid-container">
     <p>Nome</p>
     <p>Email</p>
@@ -7,7 +10,7 @@
     <% @employees.each do |employee| %>
       <%= link_to employee.name, employee_path(employee), class: "employee-name" %>
       <% if employee.email.nil? %>
-        <p>Não consta</p>
+        <p></p>
       <% else %>
         <p><%= employee.email %></p>
       <% end %>
