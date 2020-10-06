@@ -1,1 +1,12 @@
-<%= render "shared/employee_form", employee: @employee %>
+<div class="small-container">
+  <%= simple_form_for(@employee) do |f| %>
+    <%= f.input :name, label: 'Nome', required: true %>
+    <%= f.input :email, label: 'Email' %>
+    <%= f.input :role, label: 'Cargo', required: true %>
+    <%= f.input :salary, label: 'Salário' %>
+    <div class="form-button-row">
+      <%= link_to "Voltar", employees_path, class: "button" %>
+      <%= f.button :submit, "Adicionar", class: "button" %>
+    </div>
+  <% end %>
+</div>

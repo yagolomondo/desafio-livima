@@ -1,8 +1,14 @@
-<% if user_signed_in? %>
-  <h1>Bem vindo <%=current_user.email%></h1>
-  <%= link_to "Ver quadro de funcionários", employees_path %>
-  <%= link_to "Buscar funcionário", "#" %>
-  <%= link_to "Adicionar funcionário", new_employee_path %>
-<% else %>
-  <h1>Você não está logado</h1>
-<% end %>
+<div class="main-container">
+  <% if user_signed_in? %>
+    <h1>Bem vindo <%=current_user.email%></h1>
+    <div class="container">
+      <%= link_to "Funcionários", employees_path, class: "button" %>
+      <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "button" %>
+    </div>
+  <% else %>
+    <h1>Você não está logado</h1>
+    <div class="container">
+      <%= link_to "Entrar", new_user_session_path, class: "button" %>
+    </div>
+  <% end %>
+</div>

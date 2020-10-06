@@ -1,12 +1,37 @@
 .navbar-livima {
-  justify-content: space-between;
   background: white;
+  justify-content: space-between;
+  height: 56px;
 }
 
 .navbar-livima .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-livima .navbar-brand {
+  padding: 0;
+}
+
 .navbar-livima .navbar-brand img {
-  padding-bottom: 2px;
+  padding-bottom: 6px;
+}
+
+#log-in-link {
+  color: $dark-gray;
+  font-size: 18px;
+  padding: 0;
+}
+
+#log-in-link:hover {
+  color: $dark-gray;
+}
+
+.dropdown-menu.show {
+  border-radius: 12px;
+  margin: 0;
+}
+
+#navbarDropdown {
+  cursor: pointer;
+  font-size: 18px;
 }
