@@ -2,7 +2,11 @@ class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
-    @employees = Employee.all
+    if params[:name].present?
+      @employees = Employee.search_name("#{params[:name]}")
+    else
+      @employees = Employee.all
+    end
   end
 
   def show
@@ -14,17 +18,23 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.new(employee_params)
-    @employee.save
-    SlackNotifier::NOTIFIER.ping "#{@employee.name} entrou para empresa."
-    redirect_to employee_path(@employee)
+    if @employee.save
+      SlackNotifier::NOTIFIER.ping "#{@employee.name} entrou para empresa."
+      redirect_to employee_path(@employee)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @employee.update(employee_params)
-    redirect_to employee_path(@employee)
+    if @employee.update(employee_params)
+      redirect_to employee_path(@employee)
+    else
+      render :edit
+    end
   end
 
   def destroy

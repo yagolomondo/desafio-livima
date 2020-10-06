@@ -6,3 +6,9 @@ body {
 body p {
   margin: 0;
 }
+
+p.alert {
+  background-color: white;
+  border-radius: 6px;
+  color: $dark-gray;
+}

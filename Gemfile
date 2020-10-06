@@ -58,4 +58,6 @@ gem 'font-awesome-sass', '~> 5.13.0'
 gem 'simple_form'
 # Authentication gem
 gem 'devise'
-gem "slack-notifier"
+gem 'slack-notifier'
+# Pg-Search gem used for the search function
+gem 'pg_search', '~> 2.3.0'
