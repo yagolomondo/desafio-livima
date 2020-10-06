@@ -1,5 +1,26 @@
-<ul>
-  <% @employees.each do |employee| %>
-    <li><%= link_to employee.name, employee_path(employee) %>   <%= employee.email %>   <%= employee.role %>   <%= employee.salary%></li>
-  <% end %>
-</ul>
+<div class="main-container">
+  <div class="grid-container">
+    <p>Nome</p>
+    <p>Email</p>
+    <p>Cargo</p>
+    <p>Salário</p>
+    <% @employees.each do |employee| %>
+      <%= link_to employee.name, employee_path(employee), class: "employee-name" %>
+      <% if employee.email.nil? %>
+        <p>Não consta</p>
+      <% else %>
+        <p><%= employee.email %></p>
+      <% end %>
+      <p><%= employee.role %></p>
+      <% if employee.salary.nil? %>
+        <p>R$0.0</p>
+      <% else %>
+        <p>R$<%= employee.salary %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="container">
+    <%= link_to "Página Inicial", "/home", class: "button button-top-margin" %>
+    <%= link_to "Adicionar Funcionário", new_employee_path, class: "button button-top-margin" %>
+  </div>
+</div>

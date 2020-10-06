@@ -1,0 +1,21 @@
+form {
+  margin: 0 12px;
+  width: -webkit-fill-available;
+}
+
+.form-button-row {
+  display: flex;
+  justify-content: space-between;
+}
+.form-button-row .button {
+  margin-top: 16px;
+}
+
+.form-solo-button-row {
+  display: flex;
+  justify-content: center;
+}
+
+.form-solo-button-row .button {
+  margin-top: 16px;
+}
